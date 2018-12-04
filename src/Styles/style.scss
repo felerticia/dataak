@@ -1,12 +1,94 @@
-.mainNav {
-  ul.right {
+html {
+  background-color: #e4f1f9;
+  direction: rtl;
+  .mainNav {
+    border-bottom: 1px solid #bebfc1;
+    box-shadow: 0 0 none;
     a {
-      box-shadow: 0px -5px 0 #33afe3 inset;
-      padding: 0 25px;
-      transition: all 0.3s;
-      &:hover {
-        box-shadow: 0px 0 0 #33afe3 inset;
+      letter-spacing: 0;
+      margin-top: 10px;
+    }
+    ul.right {
+      padding: 0;
+      a {
+        box-shadow: 0px -5px 0 #33afe3 inset;
+        padding: 0 25px;
+        transition: all 0.3s;
+        margin: 0;
+        &:hover {
+          box-shadow: 0px 0 0 #33afe3 inset;
+        }
       }
+    }
+  }
+  .mainContent {
+    margin-top: 10px;
+    .card {
+      position: relative;
+      overflow: hidden;
+      .card-content {
+        padding: 10px;
+        p {
+          margin-right: 50px;
+        }
+      }
+      svg.icon {
+        position: absolute;
+        right: -10px;
+        width: 130px;
+        fill: rgba(255, 255, 255, 0.5);
+        bottom: -40px;
+      }
+    }
+  }
+
+  .preloader {
+    position: fixed;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 1);
+    height: 100%;
+    text-align: center;
+    z-index: 1000;
+    display: flex;
+    transition: cubic-bezier(0.79, 0.16, 0.25, 1) 700ms all;
+    opacity: 1;
+    & .bubbles {
+      margin: auto;
+    }
+    & .bubbles span {
+      display: inline-block;
+      vertical-align: middle;
+      width: 15px;
+      height: 15px;
+      margin: 150px auto;
+      background: #b804b8;
+      border-radius: 50%;
+      animation: bubbly 0.9s infinite alternate;
+    }
+    & #bubble2 {
+      animation-delay: 0.27s;
+    }
+    & #bubble3 {
+      animation-delay: 0.54s;
+    }
+    &.invisble {
+      pointer-events: none;
+      opacity: 0;
+    }
+  }
+  @keyframes bubbly {
+    0% {
+      width: 15px;
+      height: 15px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      width: 50px;
+      height: 50px;
+      opacity: 0.1;
+      transform: translateY(-32px);
     }
   }
 }

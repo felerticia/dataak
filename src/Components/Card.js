@@ -14,8 +14,8 @@ const Card = props => {
           <svg className="icon">
             <use xlinkHref={`#${icon}`} />
           </svg>
-          {data.map(item => (
-            <p>{item}</p>
+          {data.map((item, key) => (
+            <p key={key}>{item}</p>
           ))}
         </div>
       </div>

@@ -1,3 +1,35 @@
+@font-face {
+  font-family: "Iransans";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../Fonts/IRANSansWeb.eot");
+  src: url("../Fonts/IRANSansWeb.eot") format("embedded-opentype"),
+    url("../Fonts/IRANSansWeb.woff2") format("woff2"),
+    url("../Fonts/IRANSansWeb.woff") format("woff"),
+    url("../Fonts/IRANSansWeb.ttf") format("truetype");
+}
+
+* {
+  font-family: Iransans;
+  font-weight: normal;
+}
+img {
+  max-width: 100%;
+}
+h1,
+h2 {
+  margin: 0;
+  font-size: 1.1em;
+}
+h3,
+h4,
+h5 {
+  margin: 0;
+  font-size: 1em;
+}
+h6 {
+  font-size: 0.8em;
+}
 html {
   background-color: #e4f1f9;
   direction: rtl;
@@ -26,10 +58,18 @@ html {
     .card {
       position: relative;
       overflow: hidden;
+      min-height: 140px;
+      .card-title {
+        text-align: center;
+      }
       .card-content {
         padding: 10px;
         p {
-          margin-right: 50px;
+          margin-right: 110px;
+          font-size: 1.4em;
+          span {
+            margin-left: 15px;
+          }
         }
       }
       svg.icon {
@@ -38,6 +78,122 @@ html {
         width: 130px;
         fill: rgba(255, 255, 255, 0.5);
         bottom: -40px;
+      }
+    }
+    .topNews {
+      h3.moduleTitle {
+        background: #36474f;
+        color: white;
+        margin: 0;
+        padding: 10px;
+        margin: 0;
+      }
+      .newsWrapper {
+        display: flex;
+        background: white;
+        .newsList {
+          flex-basis: 50%;
+          .newsItem {
+            padding: 10px;
+            background: white;
+            border: 1px solid #eee;
+            transition: all 0.3s;
+            img {
+              border-style: none;
+              float: right;
+              width: 90px;
+              height: auto;
+              margin-left: 10px;
+            }
+            h3 {
+              line-height: 110%;
+              margin: 0;
+            }
+
+            h6 {
+              line-height: 100%;
+              margin: 0.5em;
+              &:after {
+                clear: both;
+                display: block;
+                content: "";
+              }
+            }
+            &:hover,
+            &.active {
+              background: #eee;
+              position: relative;
+              &:after {
+                position: absolute;
+                left: -1px;
+                top: 50%;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 10px 0 10px 13px;
+                border-color: transparent transparent transparent white;
+                transform: translateY(-50%);
+                clear: both;
+                display: block;
+                content: "";
+              }
+            }
+          }
+        }
+
+        .newsDetail {
+          flex-basis: 50%;
+          overflow: hidden;
+          padding: 10px 5px;
+          position: relative;
+          h6 {
+            position: absolute;
+            left: 10px;
+            top: 30px;
+          }
+          img {
+            margin: 10px 0;
+          }
+        }
+      }
+    }
+
+    // PAGINATION
+    .pagination {
+      text-align: center;
+      font-size: 0.9em;
+      ul {
+        margin: 10px 0;
+        padding: 0;
+      }
+      li {
+        cursor: pointer;
+        display: inline-block;
+        line-height: 38px;
+        margin: 0 2px;
+        transition: all 0.3s;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        overflow: hidden;
+        a {
+          color: #999;
+          padding: 0 5px;
+          display: block;
+          min-width: 28px;
+          font-size: 0.8em;
+        }
+        &:hover,
+        &.selected {
+          background: #900;
+          color: white;
+          border-color: #900;
+        }
+        &.disabled,
+        &.break {
+          cursor: default;
+          opacity: 0.4;
+          pointer-events: none;
+        }
       }
     }
   }

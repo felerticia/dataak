@@ -1,6 +1,7 @@
 import React from "react";
 
-const Navbar = () => {
+const Navbar = props => {
+  const { title, address } = props;
   return (
     <nav className="mainNav white" role="navigation">
       <div className="nav-wrapper container">
@@ -14,8 +15,8 @@ const Navbar = () => {
             </a>
             <ul className="right">
               <li>
-                <a className="blue-text text-darken-2" href="/">
-                  شناسنامه خبرگزاری تسنیم
+                <a className="blue-text text-darken-2" href={address}>
+                  {title}
                 </a>
               </li>
             </ul>
